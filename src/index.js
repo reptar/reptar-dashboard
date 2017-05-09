@@ -1,8 +1,15 @@
-import './index.css'
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'mobx-react';
+import './index.css';
+import Stores from './stores';
+import App from './App';
 
-import React from 'react'
-import {render} from 'react-dom'
+const stores = Stores.create();
 
-import App from './App'
-
-render(<App/>, document.querySelector('#app'))
+render(
+  <Provider {...stores}>
+    <App />
+  </Provider>,
+  document.querySelector('#app')
+);

@@ -1,19 +1,32 @@
-import './App.css'
+import { inject } from 'mobx-react';
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import SideNav from './components/SideNav';
+import MainContent from './components/MainContent';
 
-import React from 'react'
+const Container = styled.div`
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+`;
 
-let App = React.createClass({
-  render() {
-    return <div className="App">
-      <div className="App-heading App-flex">
-        <h2>Welcome to <span className="App-react">React</span></h2>
-      </div>
-      <div className="App-instructions App-flex">
-        <img className="App-logo" src={require('./react.svg')}/>
-        <p>Edit <code>src/App.js</code> and save to hot reload your changes.</p>
-      </div>
-    </div>
+@inject('reptar')
+class App extends Component {
+  componentDidMount() {
+    window.a = this;
+    this.props.reptar.sync();
   }
-})
 
-export default App
+  render() {
+    return (
+      <Container>
+        <SideNav />
+        <MainContent />
+      </Container>
+    );
+  }
+}
+
+export default App;
