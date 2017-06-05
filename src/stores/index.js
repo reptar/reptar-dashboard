@@ -2,12 +2,13 @@ import ReptarStore from './reptar-store';
 import UiStore from './ui-store';
 
 export default class Stores {
-  constructor() {
+  constructor(additionalStores) {
+    Object.assign(this, additionalStores);
     this.reptar = new ReptarStore();
-    this.ui = new UiStore(this.reptar);
+    this.ui = new UiStore(this);
   }
 
-  static create() {
-    return new Stores();
+  static create(stores) {
+    return new Stores(stores);
   }
 }

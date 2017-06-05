@@ -1,7 +1,7 @@
 import { inject } from 'mobx-react';
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import SideNav from './components/SideNav';
+import SideNav from './components/SideNav/SideNav';
 import MainContent from './components/MainContent';
 
 const Container = styled.div`

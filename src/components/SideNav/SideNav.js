@@ -35,7 +35,11 @@ export default class SideNav extends Component {
 
         <Content>
           {files.map(file =>
-            <FileCell key={file.id} onClick={ui.setSelected} {...file} />
+            <FileCell
+              key={file.id}
+              {...file}
+              active={ui.selectedId === file.id}
+            />
           )}
         </Content>
       </Container>
