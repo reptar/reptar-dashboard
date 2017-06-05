@@ -15,7 +15,6 @@ const Container = styled.div`
 @inject('reptar')
 class App extends Component {
   componentDidMount() {
-    window.a = this;
     this.props.reptar.sync();
   }
 
