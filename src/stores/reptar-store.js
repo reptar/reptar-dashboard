@@ -1,18 +1,5 @@
 import { observable } from 'mobx';
-
-const apiRoot = 'http://127.0.0.1:8080';
-function fetchWrapper(url, options) {
-  return fetch(`${apiRoot}${url}`, options).then(resp => resp.json());
-}
-
-const api = {
-  config() {
-    return fetchWrapper('/api/config');
-  },
-  files() {
-    return fetchWrapper('/api/files?skipProcessing=false');
-  },
-};
+import api from '../utils/api';
 
 export default class ReptarStore {
   @observable files = [];
