@@ -34,9 +34,9 @@ export default class SideNav extends Component {
         </Header>
 
         <Content>
-          {files.map(file => (
+          {files.map(file =>
             <FileCell key={file.id} onClick={ui.setSelected} {...file} />
-          ))}
+          )}
         </Content>
       </Container>
     );

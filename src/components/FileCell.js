@@ -6,8 +6,7 @@ const Container = styled.div`
   padding: 10px;
 `;
 
-export default ({ onClick, id }) => (
+export default ({ onClick, id }) =>
   <Container onClick={() => onClick(id)}>
     {id}
-  </Container>
-);
+  </Container>;
