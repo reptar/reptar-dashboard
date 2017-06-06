@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { observer, inject } from 'mobx-react';
+import { Route } from 'react-router-dom';
 import styled from 'styled-components';
+import Config from './Config';
+import Post from './Post';
 
 const Container = styled.div`
   border: 1px solid blue;
@@ -8,23 +10,12 @@ const Container = styled.div`
   overflow: auto;
 `;
 
-@inject('reptar', 'ui')
-@observer
 export default class MainContent extends Component {
   render() {
-    const { ui } = this.props;
     return (
       <Container>
-        <h1>Content!</h1>
-        {ui.selected &&
-          <div>
-            <bold>{ui.selected.path}</bold>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: ui.selected.data.content,
-              }}
-            />
-          </div>}
+        <Route path="/config" component={Config} />
+        <Route path="/post/:id" component={Post} />
       </Container>
     );
   }
